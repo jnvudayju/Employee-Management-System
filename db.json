@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title"
+    },
+    {
+      "id": "2",
+      "title": "another title"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "id": "4cec",
+      "firstName": "Amit",
+      "lastName": "Kumar",
+      "email": "amit@gmail.com",
+      "dob": "2024-08-28T18:30:00.000Z",
+      "gender": "male",
+      "education": "Post Graduation",
+      "company": "Google",
+      "package": 9,
+      "experience": 4
+    }
+  ]
+}
