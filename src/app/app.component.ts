@@ -16,7 +16,7 @@ import { CoreService } from './core/core.service';
 export class AppComponent implements OnInit {
   title = 'crud-app';
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'gender', 'education', 'company', 'experience', 'email', 'dob', 'package', 'action'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'gender', 'education', 'company', 'experience', 'email', 'dob', 'packageAmount', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -69,11 +69,14 @@ export class AppComponent implements OnInit {
   }
 
   deleteEmployee(id : number){
+    console.log("Deleting employee with ID:", id);
     this._empService.deleteEmployee(id).subscribe({
       next : (res)=>{
         // alert("Employee deleted ");
         this._coreService.openSnackBar("Employee deleted ", "Done");
-        this.getEmployeeList();
+        // this.getEmployeeList();
+        this.dataSource.data = this.dataSource.data.filter(employee => employee.id !== id);
+        console.log("Updated dataSource:", this.dataSource.data);
       },
       error : (err)=>{
         console.log(err);

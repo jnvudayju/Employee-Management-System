@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSortModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
