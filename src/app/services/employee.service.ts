@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../config/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,36 +10,25 @@ export class EmployeeService {
 
   constructor(private _http : HttpClient) { }
 
-  // addEmployee(data : any) : Observable<any>{
-  //   return this._http.post("http://localhost:3000/employees", data);
-  // }
+  private apiUrl = environment.apiUrl;
 
   addEmployee(data : any) : Observable<any>{
-    return this._http.post("http://localhost:8080/api/employees", data);
+    return this._http.post(`${this.apiUrl}`, data);
   }
 
-  // updateEmployee(id : number, data : any) : Observable<any>{
-  //   return this._http.put(`http://localhost:3000/employees/${id}`, data)
-  // }
 
   updateEmployee(id : number, data : any) : Observable<any>{
-    return this._http.put(`http://localhost:8080/api/employees/${id}`, data)
+    return this._http.put(`${this.apiUrl}/${id}`, data);
   }
 
-  // getEmployee(): Observable<any>{
-  //   return this._http.get("http://localhost:3000/employees");
-  // }
 
   getEmployee(): Observable<any>{
-    return this._http.get("http://localhost:8080/api/employees");
+    return this._http.get(`${this.apiUrl}`);
   }
 
-  // deleteEmployee(id : number) : Observable<any>{
-  //   return this._http.delete(`http://localhost:3000/employees/${id}`)
-  // }
 
   deleteEmployee(id : number) : Observable<any>{
-    return this._http.delete(`http://localhost:8080/api/employees/${id}`)
+    return this._http.delete(`${this.apiUrl}/${id}`);
   }
 
 
